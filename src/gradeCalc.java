@@ -4,15 +4,18 @@ import java.util.ArrayList;
 import java.io.*;
 public class gradeCalc {
 
-    private ArrayList<Integer> list;
+    // Creating array List to hold grades
+    private ArrayList<Integer> list = new ArrayList<Integer>();
 
+    // Constructor that accepts file as input
     public gradeCalc(String file) throws FileNotFoundException {
         Scanner inputScan = new Scanner(new File(file));
-        list = new ArrayList<Integer>();
 
+        // While loop with try catch
         while (inputScan.hasNextLine()) {
             String grade = inputScan.nextLine();
             try {
+                // Using the parseInt method to make sure the value in the line is a number
                 list.add(Integer.parseInt(grade));
             } catch (NumberFormatException e) {
                 System.out.println("Non number was found: " + grade);
@@ -21,6 +24,7 @@ public class gradeCalc {
         inputScan.close();
     }
 
+    // method to get average grade
     public Double getAverageGrade() {
         double total = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -29,6 +33,7 @@ public class gradeCalc {
         return total / list.size();
     }
 
+    // method to get highest grade in file
     public int getHigh() {
         int high = list.get(0);
         for (int i = 0; i < list.size(); i++) {
@@ -39,6 +44,7 @@ public class gradeCalc {
         return high;
     }
 
+    // method to get lowest grade in file
     public int getLow() {
         int low = list.get(0);
         for (int i = 0; i < list.size(); i++) {
@@ -49,6 +55,7 @@ public class gradeCalc {
         return low;
     }
 
+    // Helper method for the AllLetterGrades() method
     private String getGrade(int grade) {
         if (grade >= 90) {
             return "A";
@@ -63,11 +70,13 @@ public class gradeCalc {
         }
     }
 
+    // Method to display the letter grades based off of the grades in the file
     public String AllLetterGrades() {
         String[] letterGrades = new String[list.size()];
         for (int i = 0; i < list.size(); i++) {
             letterGrades[i] = getGrade(list.get(i));
         }
+        // Using the Arrays.toString method to print the array as a string
         return Arrays.toString(letterGrades);
     }
 }
