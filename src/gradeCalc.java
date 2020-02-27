@@ -67,7 +67,7 @@ public class gradeCalc {
         String[] letterGrades = new String[list.size()];
         for (int i = 0; i < list.size(); i++) {
             letterGrades[i] = getGrade(list.get(i));
-        };
+        }
         return Arrays.toString(letterGrades);
     }
 }
