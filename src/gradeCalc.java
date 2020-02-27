@@ -5,6 +5,7 @@ import java.io.*;
 public class gradeCalc {
 
     // Creating array List to hold grades
+    // making ArrayList private from user
     private ArrayList<Integer> list = new ArrayList<Integer>();
 
     // Constructor that accepts file as input
