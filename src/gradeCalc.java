@@ -20,6 +20,7 @@ public class gradeCalc {
             try {
                 // Using the parseInt method to make sure the value in the line is a number
                 list.add(Integer.parseInt(grade));
+                // Catching non number, showing it to user
             } catch (NumberFormatException e) {
                 System.out.println("Non number was found: " + grade);
             }
