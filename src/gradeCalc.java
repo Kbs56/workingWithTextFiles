@@ -9,6 +9,8 @@ public class gradeCalc {
 
     // Constructor that accepts file as input
     public gradeCalc(String file) throws FileNotFoundException {
+        // Creating Scanner Object to read through file
+        // Scanner accepts the file name as input using the File() object
         Scanner inputScan = new Scanner(new File(file));
 
         // While loop with try catch
@@ -73,7 +75,10 @@ public class gradeCalc {
     // Method to display the letter grades based off of the grades in the file
     public String AllLetterGrades() {
         String[] letterGrades = new String[list.size()];
+        // iterating through array list
         for (int i = 0; i < list.size(); i++) {
+            // Loading array, assigning the index of the array to what the getGrade() class returns
+            // passing in the index of the array list into the getGrade() method
             letterGrades[i] = getGrade(list.get(i));
         }
         // Using the Arrays.toString method to print the array as a string
