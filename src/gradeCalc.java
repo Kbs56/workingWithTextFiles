@@ -21,32 +21,32 @@ public class gradeCalc {
         inputScan.close();
     }
 
-    public String getAverageGrade() {
-        int total = 0;
+    public Double getAverageGrade() {
+        double total = 0;
         for (int i = 0; i < list.size(); i++) {
             total += list.get(i);
         }
-        return "Average of all valid grades in file: " + total / list.size();
+        return total / list.size();
     }
 
-    public String getHigh() {
+    public int getHigh() {
         int high = list.get(0);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) > high) {
                 high = list.get(i);
             }
         }
-        return "Highest Grade in file: " + high;
+        return high;
     }
 
-    public String getLow() {
+    public int getLow() {
         int low = list.get(0);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i) < low) {
                 low = list.get(i);
             }
         }
-        return "Lowest Grade in file: " + low;
+        return low;
     }
 
     private String getGrade(int grade) {
@@ -71,4 +71,3 @@ public class gradeCalc {
         return Arrays.toString(letterGrades);
     }
 }
-
